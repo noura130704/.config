@@ -1,0 +1,92 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "final_space": true,
+    "version": 2,
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "path",
+                    "style": "plain",
+                    "foreground": "#98E4FF",
+                    "properties": {
+                        "style": "full"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "plain",
+                    "foreground": "#FFA1F5",
+                    "properties": {
+                        "branch_icon": "󰘬 ",
+                        "branch_identical_icon": "󰓦",
+                        "branch_gone_icon": "󰓨",
+                        "branch_ahead_icon": "󱦲",
+                        "branch_behind_icon": "󱦳",
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "template": "<#EDE4FF>on</> {{ .HEAD }} {{if .BranchStatus }}<#EDE4FF>is</> {{ .BranchStatus }}{{ end }} {{ if or (.Working.Changed) (.Staging.Changed) }}<#EDE4FF>where</> {{ end }}{{ if .Working.Changed }}<#F6FA70>[{{ .Working.String }}]</> {{ end }}{{ if .Staging.Changed }}<#FF8400>[{{ .Staging.String }}]</>{{ end }}"
+                },
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "foreground": "#00FAAC",
+                    "properties": {
+                        "display_mode": "files",
+                        "fetch_version": true
+                    },
+                    "template": "<#EDE4FF>via</> 󰌠 {{ .Full }}"
+                },
+                {
+                    "type": "node",
+                    "style": "plain",
+                    "foreground": "#00FAAC",
+                    "properties": {
+                        "display_mode": "files",
+                        "fetch_version": true,
+                        "fetch_package_manager": true
+                    },
+                    "template": "<#EDE4FF>via</> 󰎙 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "executiontime",
+                    "style": "plain",
+                    "foreground": "#EDE4FF",
+                    "properties": {
+                        "always_enabled": true,
+                        "threshold": 1
+                    },
+                    "template": "took {{ .FormattedMs }}"
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "status",
+                    "style": "plain",
+                    "foreground": "#38E54D",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}#FF1E1E{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true
+                    },
+                    "template": " 󰁕"
+                }
+            ]
+        }
+    ]
+}
