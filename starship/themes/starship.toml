@@ -20,11 +20,11 @@ $character"""
 # The name of the module we are configuring
 [character]
 success_symbol = '[\$](bold white)'
-error_symbol = '[󱎘](bold red)'
+error_symbol = '[\$](bold white)'
 
 [directory]
 style = "bold yellow"
-truncation_length = 4
+truncation_length = 3
 truncation_symbol = '…/'
 
 [git_branch]
